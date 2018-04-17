@@ -3,17 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#qCharts',
-  components: { App },
-  created: function () {
-    // console.log(this.$el.getAttribute('data-client-id'))
-  },
-  mounted: function () {
-    console.log(this.$el.getAttribute('data-client-id'))
-  },
-  template: '<App/>'
+const divs = document.querySelectorAll('.qCharts');
+
+divs.forEach(el => {
+  const dataAttributs = el.dataset
+  /* eslint-disable no-new */
+  new Vue({
+    el: el,
+    components: {App},
+    data() {
+      return {
+        dataAttributs
+      }
+    },
+    template: '<App :dataAttributs="dataAttributs" />'
+  })
+
 })
+
+

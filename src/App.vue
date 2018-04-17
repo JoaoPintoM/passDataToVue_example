@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>{{data-client-id}}</p>
+    <p>{{JSON.stringify(dataAttributs)}}</p>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 
 export default {
   name: 'App',
-  props: ['data-client-id'],
+  props: ['dataAttributs'],
   components: {}
 }
 </script>
